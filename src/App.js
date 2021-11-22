@@ -13,14 +13,16 @@ function App() {
     let result
     const fetchContent = async () => {
       result = await axios.get(api_url);
+      setContent(result.data)
     }
 
-    fetchContent()
+    
 
     //Setting the interval
     const update = setInterval(() => {
-      setContent(result.data)
 
+
+          fetchContent()
     }, 1000)
 
     //clearing the interval
